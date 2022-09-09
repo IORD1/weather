@@ -501,7 +501,7 @@ svg {
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    margin: auto auto 20px auto ;
+    margin: 20px auto 0px auto ;
 }
 #day-1{
     margin: auto auto auto 10px;

@@ -27,7 +27,7 @@ function getPosition() {
       document.getElementById("lat-box").innerHTML ="Lat- "+ userlatitude.toFixed(2);
       $.getJSON("https://api.weatherapi.com/v1/forecast.json?key=e4c52729735f4ab4a4b123828220601&q=" + userlatitude.toFixed(4) +"," + userlongitude.toFixed(4) +  "&days=3&aqi=no&alerts=no", function(data) {
       // JSON result in `data` variable
-   
+      console.log(data);
       document.getElementById("current-temp-main").innerHTML = data.current.temp_c.toFixed(0) + "°";
       document.getElementById("curr-day-temp-status-box").innerHTML = data.current.condition.text;
       document.getElementById("wind-speed").innerHTML = data.current.wind_kph;
@@ -46,7 +46,7 @@ function getPosition() {
       document.getElementById("pm-9").innerHTML = data.forecast.forecastday[0].hour[21].temp_c.toFixed(0) + '°';
       document.getElementById("am-12").innerHTML = data.forecast.forecastday[0].hour[23].temp_c.toFixed(0) + '°';
       document.getElementById("city-box").innerHTML = data.location.name+", "+ data.location.region;
-      $("#curret-weather-img").attr('src', data.current.condition.icon.substring(2));
+      document.getElementById("curret-weather-img").src= data.current.condition.icon;
       const days = new Date();
       let dayss = days.getDay();
       document.getElementById("day-1-name").innerHTML = daygiver(dayss+1);
@@ -57,8 +57,8 @@ function getPosition() {
       document.getElementById("day-2-high").innerHTML = data.forecast.forecastday[2].day.maxtemp_c.toFixed(0) + '°'  ;
       document.getElementById("day-1-down").innerHTML = data.forecast.forecastday[1].day.mintemp_c.toFixed(0) + '°' ;
       document.getElementById("day-2-down").innerHTML = data.forecast.forecastday[2].day.mintemp_c.toFixed(0) + '°' ;
-      $("#day-1-img").attr('src', data.forecast.forecastday[1].day.condition.icon.substring(2));
-      $("#day-2-img").attr('src', data.forecast.forecastday[2].day.condition.icon.substring(2));
+      document.getElementById("day-1-img").src= data.forecast.forecastday[1].day.condition.icon;
+      document.getElementById("day-2-img").src= data.forecast.forecastday[2].day.condition.icon;
 
       });
 
