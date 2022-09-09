@@ -364,22 +364,14 @@ $(document).ready(function () // Call function when page is ready for load..
 //code for playing music for todo
 var myMedia = null;
 function playAudio() {
-  var src = "/android_asset/www/media/reactive.mp3";
-      if(myMedia == null) {
-      myMedia = new Media(src, onSuccess, onError);
-    
-  function onSuccess() {
-         console.log("playAudio Success");
-      }
-
-      function onError(error) {
-         console.log("playAudio Error: " + error.code);
-      }
-   }
-   myMedia.play();
+  
+   var audio1 = document.getElementById('beep');
+   audio1.play();
 }
 
 //for vibrating phone on task complition
-function vibratephone(){
-   navigator.vibrate([100]);
-}
+
+
+function vibratephone() {
+   navigator.vibrate(200);
+ }
